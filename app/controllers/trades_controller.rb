@@ -7,6 +7,12 @@ class TradesController < ApplicationController
     @trades = Trade.all
   end
 
+
+  def open_positions
+    @trades = Trade.where(open: 1)
+  end
+
+
   # GET /trades/1
   # GET /trades/1.json
   def show
