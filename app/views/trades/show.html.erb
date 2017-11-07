@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Index:</strong>
+  <%= @trade.index %>
+</p>
+
+<p>
+  <strong>Ticker:</strong>
+  <%= @trade.ticker %>
+</p>
+
+<p>
+  <strong>Date buy:</strong>
+  <%= @trade.date_buy %>
+</p>
+
+<p>
+  <strong>Date sell:</strong>
+  <%= @trade.date_sell %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @trade.amount %>
+</p>
+
+<p>
+  <strong>Amount btc:</strong>
+  <%= @trade.amount_BTC %>
+</p>
+
+<p>
+  <strong>Price buy:</strong>
+  <%= @trade.price_buy %>
+</p>
+
+<p>
+  <strong>Price sell:</strong>
+  <%= @trade.price_sell %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @trade.price %>
+</p>
+
+<p>
+  <strong>Exchange:</strong>
+  <%= @trade.exchange %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @trade.open %>
+</p>
+
+<p>
+  <strong>Ret btc:</strong>
+  <%= @trade.ret_BTC %>
+</p>
+
+<p>
+  <strong>Ret usd:</strong>
+  <%= @trade.ret_USD %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @trade.logo %>
+</p>
+
+<%= link_to 'Edit', edit_trade_path(@trade) %> |
+<%= link_to 'Back', trades_path %>

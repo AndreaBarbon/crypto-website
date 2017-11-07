@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Ticker</th>
+      <th>Date buy</th>
+      <th>Date sell</th>
+      <th>Amount</th>
+      <th>Amount btc</th>
+      <th>Price buy</th>
+      <th>Price sell</th>
+      <th>Price</th>
+      <th>Exchange</th>
+      <th>Open</th>
+      <th>Ret btc</th>
+      <th>Ret usd</th>
+      <th>Logo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trades.each do |trade| %>
+      <tr>
+        <td><%= trade.index %></td>
+        <td><%= trade.ticker %></td>
+        <td><%= trade.date_buy %></td>
+        <td><%= trade.date_sell %></td>
+        <td><%= trade.amount %></td>
+        <td><%= trade.amount_BTC %></td>
+        <td><%= trade.price_buy %></td>
+        <td><%= trade.price_sell %></td>
+        <td><%= trade.price %></td>
+        <td><%= trade.exchange %></td>
+        <td><%= trade.open %></td>
+        <td><%= trade.ret_BTC %></td>
+        <td><%= trade.ret_USD %></td>
+        <td><%= trade.logo %></td>
+        <td><%= link_to 'Show', trade %></td>
+        <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+        <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trade', new_trade_path %>

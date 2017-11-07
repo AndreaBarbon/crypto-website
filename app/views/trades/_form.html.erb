@@ -1,0 +1,87 @@
+<%= form_with(model: trade, local: true) do |form| %>
+  <% if trade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
+
+      <ul>
+      <% trade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :index %>
+    <%= form.number_field :index, id: :trade_index %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticker %>
+    <%= form.text_field :ticker, id: :trade_ticker %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_buy %>
+    <%= form.date_select :date_buy, id: :trade_date_buy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_sell %>
+    <%= form.date_select :date_sell, id: :trade_date_sell %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :trade_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount_BTC %>
+    <%= form.text_field :amount_BTC, id: :trade_amount_BTC %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_buy %>
+    <%= form.text_field :price_buy, id: :trade_price_buy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_sell %>
+    <%= form.text_field :price_sell, id: :trade_price_sell %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :trade_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exchange %>
+    <%= form.text_field :exchange, id: :trade_exchange %>
+  </div>
+
+  <div class="field">
+    <%= form.label :open %>
+    <%= form.check_box :open, id: :trade_open %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ret_BTC %>
+    <%= form.text_field :ret_BTC, id: :trade_ret_BTC %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ret_USD %>
+    <%= form.text_field :ret_USD, id: :trade_ret_USD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :logo %>
+    <%= form.text_field :logo, id: :trade_logo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
