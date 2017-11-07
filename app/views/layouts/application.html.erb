@@ -9,8 +9,8 @@
   </head>
 
   <body>
+  	<%= link_to "Live Performance", :controller => :welcome, :action => :index %>
+  	<%= link_to "Open Positions"  , :controller => :trades, :action => :open_positions %>
     <%= yield %>
-
-    <%= link_to "Open Positions", :controller => :trades, :action => :open_positions %>
   </body>
 </html>
