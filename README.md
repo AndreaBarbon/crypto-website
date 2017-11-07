@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# crypto-website
+The website for the Crypto ML project, written in Ruby On Rails
+>>>>>>> 16580153ee3e4f9a35dddb5ba3bc747201248d30
