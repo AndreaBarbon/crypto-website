@@ -1,0 +1,14 @@
+$(document).ready ->
+  $('#USD_chart').highcharts 'StockChart',
+    xAxis: type: 'datetime'
+    title: text: 'Dollar Return'
+    data: csv: document.getElementById('USD_chart.csv').innerHTML
+
+  $('#BTC_chart').highcharts 'StockChart',
+    xAxis: type: 'datetime'
+    title: text: 'Bitcoin Return'
+    data: csv: document.getElementById('BTC_chart.csv').innerHTML
+    colors: ['#ff6600']
+  return
+
+

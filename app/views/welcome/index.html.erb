@@ -1,0 +1,15 @@
+<h1>Live Performance</h1>
+
+<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="http://code.highcharts.com/modules/data.js"></script>
+
+<div id="BTC_chart" style="height: 400px; min-width: 310px; max-width: 800px;"></div>
+<br/><br/>
+<div id="USD_chart" style="height: 400px; min-width: 310px; max-width: 800px;"></div>
+
+<pre id="BTC_chart.csv" style="display: none"><%= @data_BTC %></pre>
+<pre id="USD_chart.csv" style="display: none"><%= @data_USD %></pre>
+
+<p><%= @usd_ret %></p>
+<p><%= @eur_ret %></p>
+<p><%= @btc_ret %></p>
