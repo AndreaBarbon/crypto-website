@@ -17,11 +17,11 @@
   <tbody>
     <% @trades.each do |trade| %>
       <tr>
-        <td><%= trade.ticker %></td>
+        <td><%= link_to trade.ticker, trade.crypto_compare_link %></td>
         <td><%= trade.exchange %></td>
         <td><%= trade.date_buy %></td>
-        <td><%= trade.amount %></td>
-        <td><%= trade.price_buy %></td>
+        <td><%= trade.amount.round(2) %></td>
+        <td><%= trade.price_buy.round(8) %></td>
       </tr>
     <% end %>
   </tbody>
