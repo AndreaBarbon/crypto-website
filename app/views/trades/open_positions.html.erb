@@ -6,12 +6,10 @@
   <thead>
     <tr>
       <th>Ticker</th>
+      <th>Exchange</th>
       <th>Date buy</th>
-      <th>Date sell</th>
       <th>Amount</th>
       <th>Price buy</th>
-      <th>Price sell</th>
-      <th>Exchange</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,12 +18,10 @@
     <% @trades.each do |trade| %>
       <tr>
         <td><%= trade.ticker %></td>
+        <td><%= trade.exchange %></td>
         <td><%= trade.date_buy %></td>
-        <td><%= trade.date_sell %></td>
         <td><%= trade.amount %></td>
         <td><%= trade.price_buy %></td>
-        <td><%= trade.price_sell %></td>
-        <td><%= trade.exchange %></td>
       </tr>
     <% end %>
   </tbody>
