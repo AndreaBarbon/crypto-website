@@ -10,18 +10,22 @@
       <th>Date buy</th>
       <th>Amount</th>
       <th>Price buy</th>
+      <th>Price</th>
+      <th>Return BTC</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @trades.each do |trade| %>
+    <% @positions.each do |pos| %>
       <tr>
-        <td><%= link_to trade.ticker, trade.crypto_compare_link %></td>
-        <td><%= trade.exchange %></td>
-        <td><%= trade.date_buy %></td>
-        <td><%= trade.amount.round(2) %></td>
-        <td><%= trade.price_buy.round(8) %></td>
+        <td><%= link_to pos.ticker, pos.crypto_compare_link %></td>
+        <td><%= pos.exchange %></td>
+        <td><%= pos.date_buy %></td>
+        <td><%= pos.amount.round(2) %></td>
+        <td><%= pos.price_buy.round(8) %></td>
+        <td><%= pos.price.round(8) %></td>
+        <td><%= pos.ret_BTC.round(4) %></td>
       </tr>
     <% end %>
   </tbody>

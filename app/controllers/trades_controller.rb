@@ -9,7 +9,20 @@ class TradesController < ApplicationController
 
 
   def open_positions
-    @trades = Trade.where(open: 1)
+    tickers = []
+    @positions = Trade.where(open:1)
+    @positions.each do |pos|
+      tickers << pos.ticker
+    end
+    tickers = "#{tickers.join(",")}"
+
+    url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers}&tsyms=BTC,USD,EUR"
+    response = JSON.parse(RestClient::Request.execute(method: :get, url:url))
+
+    @positions.each do |pos|
+      pos.price = response[pos.ticker]['BTC']
+      pos.ret_BTC = (pos.price-pos.price_buy)/pos.price_buy
+    end
   end
 
 
