@@ -19,10 +19,14 @@ class TradesController < ApplicationController
     url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers}&tsyms=BTC,USD,EUR"
     response = JSON.parse(RestClient::Request.execute(method: :get, url:url))
 
+    returns = []
     @positions.each do |pos|
-      pos.price = response[pos.ticker]['BTC']
+      pos.price   = response[pos.ticker]['BTC']
       pos.ret_BTC = (pos.price-pos.price_buy)/pos.price_buy
+      pos.save
     end
+
+    @avg_ret = @positions.average(:ret_BTC)
   end
 
 
