@@ -27,7 +27,7 @@
         <td><%= pos.amount.round(2) %></td>
         <td><%= pos.price_buy.round(8) %></td>
         <td><%= pos.price.round(8) %></td>
-        <td><%= pos.ret_BTC.round(4) %></td>
+        <td><%= (pos.ret_BTC*100).round(2) %>%</td>
       </tr>
     <% end %>
   </tbody>
