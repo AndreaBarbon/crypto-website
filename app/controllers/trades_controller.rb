@@ -14,12 +14,11 @@ class TradesController < ApplicationController
     @positions.each do |pos|
       tickers << pos.ticker
     end
-    tickers = "#{tickers.join(",")}"
+    tickers_str = "#{tickers.join(",")}"
 
-    url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers}&tsyms=BTC,USD,EUR"
+    url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers_str}&tsyms=BTC,USD,EUR"
     response = JSON.parse(RestClient::Request.execute(method: :get, url:url))
 
-    returns = []
     @positions.each do |pos|
       pos.price   = response[pos.ticker]['BTC']
       pos.ret_BTC = (pos.price-pos.price_buy)/pos.price_buy
@@ -27,6 +26,22 @@ class TradesController < ApplicationController
     end
 
     @avg_ret = @positions.average(:ret_BTC)
+
+    # Random coins
+    # @random_coins = Trade.order("RANDOM()").limit( tickers.length )
+    # tickers = []
+    # @random_coins.each do |pos|
+    #   tickers << pos.ticker
+    # end
+    # tickers_str = "#{tickers.join(",")}"
+    # url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers_str}&tsyms=BTC,USD,EUR"
+    # response = JSON.parse(RestClient::Request.execute(method: :get, url:url))
+    # returns = []
+    # @random_coins.each do |pos|
+    #   pos.price   = response[pos.ticker]['BTC']
+    #   returns << (pos.price-pos.price_buy)/pos.price_buy
+    # end
+    # @avg_ret_random = returns.reduce(:+) / returns.size.to_f
   end
 
 

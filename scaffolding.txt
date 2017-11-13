@@ -1,0 +1,3 @@
+rails g scaffold trade ticker date_buy:date date_sell:date amount:float amount_BTC:float price_buy:float price_sell:float price:float exchange open:boolean ret_BTC:float ret_USD:float logo --force
+
+self.primary_key = "id"

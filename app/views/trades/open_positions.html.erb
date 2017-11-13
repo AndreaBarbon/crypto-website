@@ -23,7 +23,7 @@
       <tr>
         <td><%= link_to pos.ticker, pos.crypto_compare_link %></td>
         <td><%= pos.exchange %></td>
-        <td><%= pos.date_buy %></td>
+        <td><%= pos.date_buy.strftime('%d-%m-%Y, %H:%M') %></td>
         <td><%= pos.amount.round(2) %></td>
         <td><%= pos.price_buy.round(8) %></td>
         <td><%= pos.price.round(8) %></td>
