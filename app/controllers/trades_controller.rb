@@ -14,10 +14,21 @@ class TradesController < ApplicationController
     @positions.each do |pos|
       tickers << pos.ticker
     end
-    tickers_str = "#{tickers.join(",")}"
 
-    url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers_str}&tsyms=BTC,USD,EUR"
-    response = JSON.parse(RestClient::Request.execute(method: :get, url:url))
+    def get_prices(coins)
+      tickers_str = "#{coins.join(",")}"
+      url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=#{tickers_str}&tsyms=BTC,USD,EUR"
+      response = JSON.parse(RestClient::Request.execute(method: :get, url:url))
+      return response
+    end
+
+    response = {}
+    T = tickers.length
+    M = T / 50
+    for i in 1..M+1
+      coins = tickers[(i-1)*50 .. i*50]
+      response = response.merge( get_prices(coins) )
+    end
 
     @positions.each do |pos|
       pos.price   = response[pos.ticker]['BTC']
