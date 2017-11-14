@@ -23,9 +23,7 @@ class TradesController < ApplicationController
     end
 
     response = {}
-    T = tickers.length
-    M = T / 50
-    for i in 1..M+1
+    for i in 1  .. tickers.length/50 + 1
       coins = tickers[(i-1)*50 .. i*50]
       response = response.merge( get_prices(coins) )
     end
